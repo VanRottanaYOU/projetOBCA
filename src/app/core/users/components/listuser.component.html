@@ -1,0 +1,39 @@
+<div class="row col-4">
+  <h4>Bienvenue </h4>
+  <p><a [routerLink]="['']">Logout</a></p>
+</div>
+<div>
+  <span *ngIf="isLoaded">Liste des users</span>
+  <span *ngIf="!isLoaded">Chargement des users</span>
+  <ul class="listeusers">
+    <li class="row" *ngFor="let user of ListUsers | async">
+      <p>{{user.id}} - {{user.first_name}}</p>
+      <button (click)="select(user)" class="text-primary">Détails</button>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <div class="formulaire">
+    <p><label>FirstName</label><input [(ngModel)]="first_name" value="first_name"></p>
+    <p><label>LastName</label> <input [(ngModel)]="last_name" value="last_name"></p>
+    <p><label>token</label><input [(ngModel)]="token" value="token"></p>
+    <p><label>email</label> <input [(ngModel)]="email" value="email"></p>
+    <p><label>password</label> <input [(ngModel)]="password" value="password"></p>
+    <p><input type="submit" (click)="ajout()" value="Ajout" ></p>
+  </div>
+</div>
+
+<div>
+  <div class="formulaire">
+    <span><label>ID Modif</label> <input [(ngModel)]="idmodif"></span>
+    <span class="ml-2"><input class="bouton" type="submit" (click)="modifier()" value="Modifier"></span>
+  </div>
+</div>
+
+<div>
+  <div class="formulaire">
+    <span><label>ID Supp</label> <input [(ngModel)]="idsupp"></span>
+    <span class="ml-2"><input class="bouton" type="submit" (click)="supprimer()" value="Delete"></span>
+  </div> 
+</div>
