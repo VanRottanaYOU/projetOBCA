@@ -5,6 +5,8 @@ import { ListuserComponent } from './users/components/listuser.component';
 import { LoginComponent } from './users/components/login/login.component';
 import { UserService  } from './users/service/userservice.service';
 import { AuthenticationService } from './users/service/authentication-service.service';
+import { AuthGuardService } from './users/service/auth-guard.service';
+import { RoleGuardService } from './users/service/role-guard.service';
 
 
 const routes :Routes = [
@@ -15,14 +17,15 @@ const routes :Routes = [
   },
   {
     path: 'login',
-    canActivate: [AuthenticationService],
     component: LoginComponent
   },
   {
     path: 'user',
-    canActivate: [UserService],
-    component: ListuserComponent
-  }
+    component: ListuserComponent,
+    //canActivate: [AuthGuardService],
+    canActivate: [RoleGuardService],  
+  },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

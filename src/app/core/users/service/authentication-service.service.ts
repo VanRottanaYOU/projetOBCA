@@ -35,4 +35,9 @@ export class AuthenticationService {
     return true;
   }
 
+  public isAuthenticated(): boolean {
+    const token = localStorage.getItem('user');
+    return token != null;
+  }
+
 }

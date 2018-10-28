@@ -1,0 +1,20 @@
+{
+    "user":[
+        {
+            "id": 1,
+            "first_name": "flo",
+            "last_name": "florent",
+            "token": "employe",
+            "email": "flo@html.fr",
+            "password": "flo"
+        },
+        {
+            "id": 2,
+            "first_name": "van-rottana",
+            "last_name": "van-rottana",
+            "token": "admin",
+            "email": "van@html.fr",
+            "password": "van"
+        }
+    ]
+}
